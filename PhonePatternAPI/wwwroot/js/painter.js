@@ -1,5 +1,4 @@
-﻿const uri = 'api/todoitems';
-let beenDone = [];
+﻿
 
 function drawBoard() {
     let bw = 150;
