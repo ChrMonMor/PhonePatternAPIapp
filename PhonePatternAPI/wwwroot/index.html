@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-
     <div class="row">
         <div class="column left">
             <h1>To-do CRUD</h1>
@@ -46,10 +45,22 @@
         </div>
 
         <div class="column right">
+            <p id="test" hidden>1234</p>
             <canvas id="canvas" width=170 height=170 style="background: #fff;"></canvas>
+            <form action="javascript:void(0);" method="GET" onsubmit="wrongPattern()">
+                <input type="submit" value="Not Good">
+            </form>
+            <form action="javascript:void(0);" method="GET" onsubmit="correctPattern()">
+                <input type="submit" value="Good">
+            </form>
+            <form action="javascript:void(0);" method="GET" onsubmit="jumpForward()">
+                <input type="number" id="jump-forward" />
+                <input type="submit" value="jump forward">
+            </form>
             <script src="js/painter.js" asp-append-version="true"></script>
             <script type="text/javascript">
                 drawBoard();
+                getPaintings();
             </script>
 
         </div>

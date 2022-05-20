@@ -15,6 +15,8 @@ namespace PhonePatternAPI.Controllers
     {
         private readonly PatternContext _context;
 
+        private readonly string[] _lines = System.IO.File.ReadLines(@"C:\Users\chri615w\Desktop\PhonePattern\PhonePatternAPIapp\PhonePatternAPI\wwwroot\misc\TextFile.txt").ToArray();
+
         public PhonePatternsController(PatternContext context)
         {
             _context = context;
@@ -33,13 +35,13 @@ namespace PhonePatternAPI.Controllers
 
         // GET: api/PhonePatterns/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PhonePattern>> GetPhonePattern(long id)
+        public async Task<ActionResult<string>> GetPhonePattern(long id)
         {
-          if (_context.PhonePatterns == null)
-          {
-              return NotFound();
-          }
-            var phonePattern = await _context.PhonePatterns.FindAsync(id);
+            if (_context.PhonePatterns == null)
+            {
+                return NotFound();
+            }
+            var phonePattern = _lines[id];
 
             if (phonePattern == null)
             {
